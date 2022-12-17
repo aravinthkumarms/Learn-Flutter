@@ -89,3 +89,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+   - family: SF_UI
+     fonts:
+       - asset: fonts/SF-UI.ttf
+   - family: Poppins
+     fonts:
+       - asset: fonts/Poppins-SemiBold.ttf
+  assets:
+    - assets/unnamed.jpg
