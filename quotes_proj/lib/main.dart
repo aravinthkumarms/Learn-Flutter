@@ -25,39 +25,36 @@ class _QuoteListState extends State<QuoteList> {
       appBar: AppBar(
         title: const Text(
           'Quotes List',
-          style: TextStyle(color: Colors.cyanAccent),
+          style: TextStyle(color: Colors.black87),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(66, 1, 244, 1),
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        elevation: 0,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(
-          quote: quote,
-          delete: (){
-            setState(() {
-              quotes.remove(quote);
-            });
-          }
-        )).toList(),
+        children: quotes
+            .map((quote) => QuoteCard(
+                quote: quote,
+                delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                }))
+            .toList(),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () async {
             Quote? addQuote = await _showTextInputDialog(context);
-            if (quote != null) {
-              setState((){
-                quotes.add(Quote(addQuote!.text, addQuote.author!));
+            if (addQuote != null) {
+                setState(() {
+                quotes.add(Quote(addQuote.text, addQuote.author));
               });
             }
           },
-        child: const Icon(
-          Icons.add_card
-        )
-      ),
+          child: const Icon(Icons.add_card)),
     );
   }
 }
-
-
 
 Future<Quote?> _showTextInputDialog(BuildContext context) async {
   final textFieldController = TextEditingController();
@@ -68,6 +65,7 @@ Future<Quote?> _showTextInputDialog(BuildContext context) async {
         return AlertDialog(
           title: const Text('Add Quote'),
           content: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: textFieldController,
@@ -81,20 +79,29 @@ Future<Quote?> _showTextInputDialog(BuildContext context) async {
           ),
           actions: <Widget>[
             ElevatedButton(
-              child: const Text("Cancel"),
               onPressed: () => Navigator.pop(context),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor:
+                Theme.of(context).colorScheme.secondaryContainer,
+              ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+              child: const Text("Cancel"),
             ),
             ElevatedButton(
-              child: const Text('OK'),
               onPressed: () {
-                var quote = Quote(textFieldController.text, authorTextFieldController.text);
+                var quote = Quote(
+                    textFieldController.text, authorTextFieldController.text);
                 Navigator.of(context).pop(quote);
-              }
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor:
+                    Theme.of(context).colorScheme.secondaryContainer,
+              ).copyWith(elevation: ButtonStyleButton.allOrNull(0.0)),
+              child: const Text('OK'),
             ),
           ],
+            actionsAlignment: MainAxisAlignment.end,
         );
       });
 }
-
-
-
