@@ -2,7 +2,6 @@ import 'package:flight_ticket/utils/app_layout.dart';
 import 'package:flight_ticket/utils/app_styles.dart';
 import 'package:flight_ticket/widgets/icon_text_widget.dart';
 import 'package:flight_ticket/widgets/ticket_tab.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -85,8 +84,6 @@ class SearchScreen extends StatelessWidget {
                         "20% discount on the early booking of this flight.Don't miss.",
                         style: Styles.headLineStyle2.copyWith(
                           color: Colors.black,
-                          fontSize: const AdaptiveTextSize()
-                              .getadaptiveTextSize(context, 24),
                         ),
                       )
                     ],
@@ -115,16 +112,14 @@ class SearchScreen extends StatelessWidget {
                                 style: Styles.headLineStyle2.copyWith(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
-                                  fontSize: 25,
                                 ),
                               ),
                               Gap(AppLayout.getHeight(10)),
                               Text(
                                 "Take the survey about our services and get discount",
-                                style: Styles.headLineStyle2.copyWith(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
-                                ),
+                                style: Styles.headLineStyle3.copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white),
                               )
                             ],
                           ),
@@ -167,11 +162,11 @@ class SearchScreen extends StatelessWidget {
                           RichText(
                             text: const TextSpan(children: [
                               TextSpan(
-                                  text: '😍', style: TextStyle(fontSize: 32)),
+                                  text: '😍', style: TextStyle(fontSize: 28)),
                               TextSpan(
-                                  text: '🥰', style: TextStyle(fontSize: 46)),
+                                  text: '🥰', style: TextStyle(fontSize: 44)),
                               TextSpan(
-                                  text: '😘', style: TextStyle(fontSize: 32))
+                                  text: '😘', style: TextStyle(fontSize: 28))
                             ]),
                           )
                         ],
