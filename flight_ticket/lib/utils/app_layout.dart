@@ -23,4 +23,19 @@ class AppLayout {
     double x = getScreenWidth() / pixels;
     return getScreenWidth() / x;
   }
+
+  final blockSizeHorizontal = getScreenWidth() / 100;
+  final blockSizeVertical = getScreenHeight() / 100;
+}
+
+class AdaptiveTextSize {
+  const AdaptiveTextSize();
+
+  getadaptiveTextSize(BuildContext context, double value) {
+    // 720 is medium screen height
+    print(AppLayout.getScreenHeight());
+    return (value /
+        AppLayout.getScreenHeight() *
+        MediaQuery.of(context).size.height);
+  }
 }
