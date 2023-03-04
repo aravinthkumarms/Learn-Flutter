@@ -31,7 +31,7 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         elevation: 0,
       ),
-      body: Column(
+      body: ListView(
         children: quotes
             .map((quote) => QuoteCard(
                 quote: quote,
@@ -105,3 +105,6 @@ Future<Quote?> _showTextInputDialog(BuildContext context) async {
         );
       });
 }
+
+
+
